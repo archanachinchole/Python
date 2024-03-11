@@ -1,0 +1,37 @@
+import pandas as pd
+
+# Load your dataset
+df = pd.read_csv('your_dataset.csv')
+
+# Display basic information about the dataset
+print("Original Dataset:")
+print(df.info())
+
+# Handling missing values
+df.dropna(inplace=True)  # Drop rows with any missing values
+
+# Remove duplicate rows
+df.drop_duplicates(inplace=True)
+
+# Convert columns to appropriate data types
+df['numeric_column'] = pd.to_numeric(df['numeric_column'], errors='coerce')
+df['date_column'] = pd.to_datetime(df['date_column'], errors='coerce')
+
+# Remove outliers in numeric columns (adjust the threshold as needed)
+numeric_columns = ['numeric_column1', 'numeric_column2']
+for col in numeric_columns:
+    z_scores = (df[col] - df[col].mean()) / df[col].std()
+    df = df[(z_scores.abs() < 3)]
+
+# Standardize or normalize numeric columns if necessary
+# Example using Min-Max scaling
+df['numeric_column'] = (df['numeric_column'] - df['numeric_column'].min()) / (df['numeric_column'].max() - df['numeric_column'].min())
+
+# Handle categorical data
+# Example: Convert categorical column to one-hot encoding
+df = pd.get_dummies(df, columns=['categorical_column'])
+
+# Correcting inconsistent values
+df['column'] = df['column'].str.lower()  # Convert to lowercase
+
+# Rename
