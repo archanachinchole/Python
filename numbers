@@ -1,0 +1,9 @@
+# Define two numbers
+number1 = 10
+number2 = 5
+
+# Perform addition
+result = number1 + number2
+
+# Print the result
+print("The result of adding", number1, "and", number2, "is:", result)
