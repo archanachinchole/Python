@@ -34,4 +34,3 @@ df = pd.get_dummies(df, columns=['categorical_column'])
 # Correcting inconsistent values
 df['column'] = df['column'].str.lower()  # Convert to lowercase
 
-# Rename
