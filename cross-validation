@@ -1,0 +1,6 @@
+from sklearn.model_selection import cross_val_score
+
+# Perform cross-validation
+scores = cross_val_score(rf_clf, X, y, cv=5, scoring='accuracy')
+print(f"Cross-Validation Scores: {scores}")
+print(f"Mean Accuracy: {scores.mean()}")
