@@ -1,0 +1,12 @@
+from statsmodels.tsa.arima.model import ARIMA
+
+# Fit ARIMA model
+model = ARIMA(df['time_series_column'], order=(1, 1, 1))
+arima_result = model.fit()
+
+# Print summary of the ARIMA model
+print(arima_result.summary())
+
+# Forecast the next 10 periods
+forecast = arima_result.forecast(steps=10)
+print(f"Forecasted values: {forecast}")
