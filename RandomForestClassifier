@@ -1,0 +1,13 @@
+from sklearn.ensemble import RandomForestClassifier
+
+# Fit the Random Forest model
+rf_clf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_clf.fit(X, y)
+
+# Feature importance
+importances = rf_clf.feature_importances_
+print(f"Feature importances: {importances}")
+
+# Predict on the test set
+y_pred = rf_clf.predict(X_test)
+print(classification_report(y_test, y_pred))
