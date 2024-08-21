@@ -1,0 +1,19 @@
+import pymc3 as pm
+import numpy as np
+
+# Example: Bayesian inference for a proportion (Binomial distribution)
+n_trials = 100  # Number of trials
+observed_successes = 70  # Number of observed successes
+
+with pm.Model() as model:
+    # Prior distribution: Uniform distribution for the probability of success
+    p = pm.Uniform('p', lower=0, upper=1)
+    
+    # Likelihood: Binomial distribution for the observed data
+    likelihood = pm.Binomial('likelihood', n=n_trials, p=p, observed=observed_successes)
+    
+    # Posterior distribution: Use MCMC to sample from the posterior
+    trace = pm.sample(2000, return_inferencedata=False)
+    
+# Plot the posterior distribution
+pm.plot_posterior(trace)
