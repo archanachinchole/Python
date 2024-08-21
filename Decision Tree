@@ -1,0 +1,15 @@
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+
+# Prepare the data
+X = df[['feature1', 'feature2']]
+y = df['target']
+
+# Fit the Decision Tree model
+tree_clf = DecisionTreeClassifier(random_state=42)
+tree_clf.fit(X, y)
+
+# Plot the decision tree
+plt.figure(figsize=(12, 8))
+plot_tree(tree_clf, filled=True, feature_names=['feature1', 'feature2'], class_names=['class0', 'class1'])
+plt.title('Decision Tree')
+plt.show()
