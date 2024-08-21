@@ -1,0 +1,83 @@
+import pandas as pd
+import numpy as np
+from scipy import stats
+
+# Step 1: Load the dataset
+df = pd.read_csv('your_dataset.csv')
+
+# Step 2: Summary Statistics
+# Mean, Median, Mode
+mean_value = df['numeric_column'].mean()
+median_value = df['numeric_column'].median()
+mode_value = df['numeric_column'].mode()[0]
+
+print(f"Mean: {mean_value}")
+print(f"Median: {median_value}")
+print(f"Mode: {mode_value}")
+
+# Variance and Standard Deviation
+variance_value = df['numeric_column'].var()
+std_dev_value = df['numeric_column'].std()
+
+print(f"Variance: {variance_value}")
+print(f"Standard Deviation: {std_dev_value}")
+
+# Skewness and Kurtosis
+skewness_value = df['numeric_column'].skew()
+kurtosis_value = df['numeric_column'].kurt()
+
+print(f"Skewness: {skewness_value}")
+print(f"Kurtosis: {kurtosis_value}")
+
+# Step 3: Correlation
+correlation_matrix = df.corr()
+print("\nCorrelation Matrix:")
+print(correlation_matrix)
+
+# Step 4: Hypothesis Testing
+# Example: One-sample t-test
+# Null hypothesis: The mean of 'numeric_column' is equal to a specific value (e.g., 50)
+t_stat, p_value = stats.ttest_1samp(df['numeric_column'], 50)
+print(f"\nOne-sample t-test results:")
+print(f"T-statistic: {t_stat}")
+print(f"P-value: {p_value}")
+
+# Example: Two-sample t-test
+# Null hypothesis: The means of 'numeric_column' are equal across two different groups
+group1 = df[df['categorical_column'] == 'Group1']['numeric_column']
+group2 = df[df['categorical_column'] == 'Group2']['numeric_column']
+t_stat_2, p_value_2 = stats.ttest_ind(group1, group2)
+print(f"\nTwo-sample t-test results:")
+print(f"T-statistic: {t_stat_2}")
+print(f"P-value: {p_value_2}")
+
+# Example: Chi-Square Test for Independence
+# Null hypothesis: There is no association between two categorical variables
+contingency_table = pd.crosstab(df['categorical_column_1'], df['categorical_column_2'])
+chi2, p, dof, expected = stats.chi2_contingency(contingency_table)
+print(f"\nChi-Square Test results:")
+print(f"Chi-Square statistic: {chi2}")
+print(f"P-value: {p}")
+
+# Step 5: Save the statistical results
+stats_summary = {
+    'Mean': mean_value,
+    'Median': median_value,
+    'Mode': mode_value,
+    'Variance': variance_value,
+    'Standard Deviation': std_dev_value,
+    'Skewness': skewness_value,
+    'Kurtosis': kurtosis_value,
+    'T-statistic (One-sample)': t_stat,
+    'P-value (One-sample)': p_value,
+    'T-statistic (Two-sample)': t_stat_2,
+    'P-value (Two-sample)': p_value_2,
+    'Chi-Square statistic': chi2,
+    'P-value (Chi-Square)': p
+}
+
+# Convert stats summary to a DataFrame for easy export
+stats_df = pd.DataFrame([stats_summary])
+stats_df.to_csv('statistical_results.csv', index=False)
+
+print("Statistical analysis complete. Results saved as 'statistical_results.csv'.")
