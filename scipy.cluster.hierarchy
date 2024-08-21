@@ -1,0 +1,12 @@
+from scipy.cluster.hierarchy import dendrogram, linkage
+
+# Generate the linkage matrix
+Z = linkage(X, method='ward')
+
+# Plot the dendrogram
+plt.figure(figsize=(10, 7))
+dendrogram(Z, truncate_mode='level', p=5)
+plt.title('Hierarchical Clustering Dendrogram')
+plt.xlabel('Sample index')
+plt.ylabel('Distance')
+plt.show()
