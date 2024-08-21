@@ -1,0 +1,16 @@
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
+# Example: Text classification using Naive Bayes
+text_data = df['text_column']
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(text_data)
+y = df['target']
+
+# Fit the Naive Bayes model
+nb_clf = MultinomialNB()
+nb_clf.fit(X, y)
+
+# Predict and evaluate
+y_pred = nb_clf.predict(X_test)
+print(classification_report(y_test, y_pred))
