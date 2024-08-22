@@ -1,0 +1,14 @@
+def find_median(numbers):
+    numbers.sort()
+    n = len(numbers)
+    
+    if n % 2 == 0:
+        median = (numbers[n//2 - 1] + numbers[n//2]) / 2
+    else:
+        median = numbers[n//2]
+    
+    return median
+
+# Example usage
+data = [12, 4, 5, 3, 8, 7]
+print("Median is:", find_median(data))
