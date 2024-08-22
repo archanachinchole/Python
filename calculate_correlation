@@ -1,0 +1,13 @@
+import numpy as np
+
+def calculate_correlation(x, y):
+    if len(x) != len(y):
+        raise ValueError("Both lists must have the same length.")
+    
+    correlation_matrix = np.corrcoef(x, y)
+    return correlation_matrix[0, 1]
+
+# Example usage
+x = [10, 20, 30, 40, 50]
+y = [15, 25, 35, 45, 55]
+print("Correlation is:", calculate_correlation(x, y))
