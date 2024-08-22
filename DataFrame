@@ -1,0 +1,11 @@
+import pandas as pd
+
+# Sample DataFrame
+data = {'Category': ['A', 'B', 'A', 'B', 'A', 'B'],
+        'Sales': [100, 200, 150, 250, 200, 300]}
+
+df = pd.DataFrame(data)
+
+# Group by 'Category' and calculate sum
+grouped_data = df.groupby('Category')['Sales'].sum()
+print(grouped_data)
