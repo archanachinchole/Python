@@ -1,0 +1,52 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load dataset
+df = pd.read_csv('your_dataset.csv')
+
+# Display basic information
+print("Basic Information:")
+print(df.info())
+
+# Display summary statistics
+print("\nSummary Statistics:")
+print(df.describe())
+
+# Checking for missing values
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+# Correlation matrix
+print("\nCorrelation Matrix:")
+correlation_matrix = df.corr()
+print(correlation_matrix)
+
+# Visualize the correlation matrix
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.title("Correlation Matrix")
+plt.show()
+
+# Distribution of numerical features
+numerical_features = df.select_dtypes(include=['int64', 'float64']).columns
+for feature in numerical_features:
+    plt.figure(figsize=(10, 6))
+    sns.histplot(df[feature], kde=True, bins=30)
+    plt.title(f'Distribution of {feature}')
+    plt.show()
+
+# Box plots to check for outliers
+for feature in numerical_features:
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(x=df[feature])
+    plt.title(f'Box Plot of {feature}')
+    plt.show()
+
+# Analyzing categorical features
+categorical_features = df.select_dtypes(include=['object']).columns
+for feature in categorical_features:
+    plt.figure(figsize=(10, 6))
+    sns.countplot(y=df[feature], order=df[feature].value_counts().index)
+    plt.title(f'Count Plot of {feature}')
+    plt.show()
