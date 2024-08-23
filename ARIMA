@@ -1,5 +1,5 @@
 from statsmodels.tsa.arima.model import ARIMA
-
+# time series analysis ARIMA
 # Fit ARIMA model
 model = ARIMA(df['time_series_column'], order=(1, 1, 1))
 arima_result = model.fit()
