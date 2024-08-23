@@ -50,3 +50,4 @@ for feature in categorical_features:
     sns.countplot(y=df[feature], order=df[feature].value_counts().index)
     plt.title(f'Count Plot of {feature}')
     plt.show()
+# show the graph.
