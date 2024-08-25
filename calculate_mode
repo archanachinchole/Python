@@ -1,0 +1,8 @@
+from collections import Counter
+
+def calculate_mode(numbers):
+    count = Counter(numbers)
+    mode = max(count, key=count.get)
+    return mode
+
+print(calculate_mode([1, 2, 2, 3, 4, 4, 4]))  # Output: 4
