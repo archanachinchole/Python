@@ -1,0 +1,11 @@
+def remove_outliers(data, threshold=1.5):
+    q1 = np.percentile(data, 25)
+    q3 = np.percentile(data, 75)
+    iqr = q3 - q1
+    lower_bound = q1 - (iqr * threshold)
+    upper_bound = q3 + (iqr * threshold)
+    return [x for x in data if lower_bound <= x <= upper_bound]
+
+import numpy as np
+data = [10, 12, 14, 15, 100, 101, 12, 13]
+print(remove_outliers(data))  # Output: [10, 12, 14, 15, 12, 13]
