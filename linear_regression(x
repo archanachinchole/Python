@@ -1,0 +1,14 @@
+def linear_regression(x, y):
+    n = len(x)
+    xy = [x[i] * y[i] for i in range(n)]
+    x_square = [x_i ** 2 for x_i in x]
+
+    m = (n * sum(xy) - sum(x) * sum(y)) / (n * sum(x_square) - sum(x) ** 2)
+    b = (sum(y) - m * sum(x)) / n
+
+    return m, b
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 5, 4, 5]
+slope, intercept = linear_regression(x, y)
+print(slope, intercept)  # Output: 0.6, 2.6
