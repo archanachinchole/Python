@@ -1,0 +1,7 @@
+import math
+
+def count_missing_values(data):
+    return sum(1 for x in data if x is None or (isinstance(x, float) and math.isnan(x)))
+
+data = [1, 2, None, 4, float('nan'), 6]
+print(count_missing_values(data))  # Output: 2
