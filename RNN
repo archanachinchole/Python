@@ -1,0 +1,10 @@
+from tensorflow.keras.layers import SimpleRNN
+
+# Define a simple RNN
+model = Sequential([
+    SimpleRNN(50, input_shape=(timesteps, input_dim)),
+    Dense(10, activation='softmax')  # Output for 10 classes
+])
+
+# Compile the model
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
