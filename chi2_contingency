@@ -1,0 +1,14 @@
+import numpy as np
+from scipy.stats import chi2_contingency
+
+# Contingency table (observed frequencies)
+observed = np.array([[10, 20, 30], [6, 9, 17]])
+
+# Perform the chi-square test
+chi2, p, dof, expected = chi2_contingency(observed)
+
+print(f"Chi-Square statistic: {chi2}")
+print(f"P-value: {p}")
+print(f"Degrees of freedom: {dof}")
+print("Expected frequencies:")
+print(expected)
