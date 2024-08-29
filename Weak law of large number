@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+
+def simulate_law_of_large_numbers(n_trials):
+    outcomes = np.random.randint(1, 7, size=n_trials)
+    cumulative_mean = np.cumsum(outcomes) / np.arange(1, n_trials + 1)
+    return cumulative_mean
+
+n_trials = 10000
+cumulative_mean = simulate_law_of_large_numbers(n_trials)
+
+plt.plot(cumulative_mean)
+plt.axhline(y=3.5, color='r', linestyle='--', label="Expected Mean")
+plt.xlabel('Number of Trials')
+plt.ylabel('Cumulative Mean')
+plt.title('Law of Large Numbers')
+plt.legend()
+plt.show()
