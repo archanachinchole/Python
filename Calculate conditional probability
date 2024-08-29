@@ -1,0 +1,7 @@
+# Given probabilities
+P_A_and_B = 0.1  # P(A ∩ B)
+P_B = 0.5        # P(B)
+
+# Calculate conditional probability
+P_A_given_B = P_A_and_B / P_B
+print(f"Conditional Probability P(A|B):", P_A_given_B)
