@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate some random data
+data = np.random.normal(loc=0, scale=1, size=1000)
+
+# Plot histogram
+plt.hist(data, bins=30, density=True, alpha=0.6, color='g')
+
+# Plot theoretical normal distribution
+from scipy.stats import norm
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = norm.pdf(x, 0, 1)
+plt.plot(x, p, 'k', linewidth=2)
+
+plt.title('Empirical Probability Distribution vs. Theoretical Normal Distribution')
+plt.xlabel('Value')
+plt.ylabel('Probability Density')
+plt.show()
