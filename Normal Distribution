@@ -1,0 +1,8 @@
+from scipy.stats import norm
+
+mean = 0
+std_dev = 1
+
+# Calculate cumulative distribution function (CDF)
+probability = norm.cdf(1.5, mean, std_dev)
+print(f"Probability of getting a value less than 1.5:", probability)
