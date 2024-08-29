@@ -1,0 +1,8 @@
+from scipy.stats import poisson
+
+mu = 2  # average rate (mean)
+k = 4   # number of events
+
+# Calculate probability
+probability = poisson.pmf(k, mu)
+print(f"Probability of observing exactly {k} events:", probability)
