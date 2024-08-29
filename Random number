@@ -1,0 +1,6 @@
+import random
+
+# Generate a random number between 0 and 1 using a uniform distribution
+random_number = random.uniform(0, 1)
+
+print("Generated Random Number:", random_number)
