@@ -1,0 +1,16 @@
+def bayesian_update(prior, likelihood, evidence):
+    posterior = (likelihood * prior) / evidence
+    return posterior
+
+# Prior probability of hypothesis H
+prior_H = 0.2
+
+# Likelihood of evidence E given H is true (P(E|H))
+likelihood_E_given_H = 0.8
+
+# Total probability of evidence E (P(E))
+evidence_E = 0.5
+
+# Update the probability of H given E (posterior)
+posterior_H_given_E = bayesian_update(prior_H, likelihood_E_given_H, evidence_E)
+print(f"Updated probability of H given E: {posterior_H_given_E}")
