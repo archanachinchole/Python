@@ -1,0 +1,17 @@
+import random
+
+def coin_flip():
+    return random.choice(['H', 'T'])
+
+def monte_carlo_simulation(trials):
+    success_count = 0
+    for _ in range(trials):
+        flips = [coin_flip() for _ in range(10)]
+        if flips.count('H') >= 4:
+            success_count += 1
+    return success_count / trials
+
+# Run the simulation with a large number of trials
+trials = 100000
+probability = monte_carlo_simulation(trials)
+print(f"Estimated probability of getting at least 4 heads in 10 flips: {probability}")
