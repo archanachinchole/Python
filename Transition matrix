@@ -1,0 +1,13 @@
+import numpy as np
+
+# Transition matrix
+P = np.array([[0.7, 0.3], [0.4, 0.6]])
+
+# Find steady-state probabilities
+# Solve for πP = π, where π is the steady-state distribution
+eigvals, eigvecs = np.linalg.eig(P.T)
+steady_state = eigvecs[:, np.isclose(eigvals, 1)]
+
+# Normalize the steady-state vector
+steady_state = steady_state / steady_state.sum()
+print(f"Steady-state probabilities: {steady_state.flatten()}")
