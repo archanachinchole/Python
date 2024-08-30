@@ -14,7 +14,7 @@ sample_std = np.std(sample_data, ddof=1)
 ## Sample size
 n = len(sample_data)
 
-# Confidence level (e.g., 95%)
+## Confidence level (e.g., 95%)
 confidence_level = 0.95
 alpha = 1 - confidence_level
 
