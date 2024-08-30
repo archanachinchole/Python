@@ -21,7 +21,7 @@ alpha = 1 - confidence_level
 ## Z-score for the confidence level (using the standard normal distribution)
 z_score = stats.norm.ppf(1 - alpha/2)
 
-# Standard error of the mean
+## Standard error of the mean
 standard_error = sample_std / np.sqrt(n)
 
 ## Confidence interval
