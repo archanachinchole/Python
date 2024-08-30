@@ -1,0 +1,33 @@
+import numpy as np
+import scipy.stats as stats
+
+# Generate a sample data
+np.random.seed(42)
+sample_data = np.random.normal(loc=50, scale=10, size=100)  # Sample from a normal distribution
+
+# Sample mean
+sample_mean = np.mean(sample_data)
+
+# Sample standard deviation
+sample_std = np.std(sample_data, ddof=1)
+
+# Sample size
+n = len(sample_data)
+
+# Confidence level (e.g., 95%)
+confidence_level = 0.95
+alpha = 1 - confidence_level
+
+# Z-score for the confidence level (using the standard normal distribution)
+z_score = stats.norm.ppf(1 - alpha/2)
+
+# Standard error of the mean
+standard_error = sample_std / np.sqrt(n)
+
+# Confidence interval
+confidence_interval = (sample_mean - z_score * standard_error, sample_mean + z_score * standard_error)
+
+# Print results
+print(f"Sample Mean: {sample_mean}")
+print(f"Standard Error: {standard_error}")
+print(f"Confidence Interval: {confidence_interval}")
