@@ -1,0 +1,10 @@
+from scipy.stats import kruskal
+
+# Sample data for 3 groups
+group1 = [4.0, 4.2, 3.9, 4.3, 4.1]
+group2 = [2.5, 2.8, 2.9, 2.4, 2.7]
+group3 = [3.6, 3.8, 3.9, 4.0, 3.7]
+
+# Perform Kruskal-Wallis test
+stat, p_value = kruskal(group1, group2, group3)
+print(f"Kruskal-Wallis statistic: {stat}, p-value: {p_value}")
