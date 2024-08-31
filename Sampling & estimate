@@ -1,0 +1,8 @@
+import numpy as np
+
+# Original data
+data = np.array([1, 2, 3, 4, 5])
+
+# Bootstrap sample
+bootstrap_sample = np.random.choice(data, size=len(data), replace=True)
+print(f"Bootstrap sample: {bootstrap_sample}")
