@@ -1,0 +1,14 @@
+import numpy as np
+
+# Prior belief
+prior = 0.6
+
+# Likelihood
+likelihood = 0.7
+
+# Evidence (probability of data)
+evidence = 0.8
+
+# Posterior probability using Bayes' Theorem
+posterior = (likelihood * prior) / evidence
+print(f"Posterior probability: {posterior}")
