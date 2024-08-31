@@ -1,0 +1,9 @@
+import numpy as np
+from scipy.stats import chi2_contingency
+
+# Create a contingency table
+data = np.array([[30, 10], [20, 40]])
+
+# Perform the chi-square test of independence
+chi2, p, dof, expected = chi2_contingency(data)
+print(f"Chi2 statistic: {chi2}, p-value: {p}")
