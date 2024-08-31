@@ -1,0 +1,8 @@
+from scipy import stats
+
+# Sample data
+data = [2.3, 2.5, 2.1, 2.8, 3.0, 2.7, 2.9]
+
+# Perform one-sample t-test
+t_statistic, p_value = stats.ttest_1samp(data, popmean=2.5)
+print(f"t-statistic: {t_statistic}, p-value: {p_value}")
