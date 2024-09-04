@@ -1,7 +1,7 @@
 import numpy as np
 from scipy import stats
 
-# Sample data for 3 groups
+# Sample data for 3 groups.
 group1 = [4.0, 4.2, 3.9, 4.3, 4.1]
 group2 = [2.5, 2.8, 2.9, 2.4, 2.7]
 group3 = [3.6, 3.8, 3.9, 4.0, 3.7]
