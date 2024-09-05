@@ -38,7 +38,7 @@ sns.countplot(data['treatment_group'])
 plt.title('Distribution of Treatment Groups')
 plt.show()
 
-# Boxplot for age grouped by treatment outcomes
+# Boxplot for age grouped by treatment outcomes.
 plt.figure(figsize=(8, 6))
 sns.boxplot(x='treatment_outcome', y='age', data=data)
 plt.title('Age vs Treatment Outcome')
