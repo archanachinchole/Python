@@ -43,3 +43,14 @@ plt.figure(figsize=(8, 6))
 sns.boxplot(x='treatment_outcome', y='age', data=data)
 plt.title('Age vs Treatment Outcome')
 plt.show()
+
+# Check for significant differences in outcomes between treatment groups
+from scipy.stats import ttest_ind
+
+# Group data by treatment group
+group_A = data[data['treatment_group'] == 'A']['treatment_outcome']
+group_B = data[data['treatment_group'] == 'B']['treatment_outcome']
+
+# Perform an independent t-test
+t_stat, p_val = ttest_ind(group_A, group_B)
+print(f"T-statistic: {t_stat}, P-value: {p_val}")
