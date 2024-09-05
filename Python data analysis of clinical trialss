@@ -1,0 +1,11 @@
+#Python data analysis of clinical trials.
+import pandas as pd
+import numpy as np
+
+# Load the dataset (assuming it's a CSV file)
+data = pd.read_csv('clinical_trials_data.csv')
+
+# Display basic information about the dataset
+print(data.info())
+print(data.describe())
+print(data.head())
