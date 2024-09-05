@@ -9,3 +9,70 @@ data = pd.read_csv('clinical_trials_data.csv')
 print(data.info())
 print(data.describe())
 print(data.head())
+
+# Check for missing values
+missing_values = data.isnull().sum()
+print("Missing values:\n", missing_values)
+
+# Fill missing values or drop rows/columns with too many missing data
+data = data.dropna()  # Simple method to drop rows with missing data
+
+# Remove duplicate entries
+data = data.drop_duplicates()
+
+# Convert categorical variables to the appropriate data type
+data['gender'] = data['gender'].astype('category')
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Distribution of age in the clinical trials
+plt.figure(figsize=(8, 6))
+sns.histplot(data['age'], kde=True, bins=30)
+plt.title('Age Distribution of Clinical Trial Participants')
+plt.show()
+
+# Countplot for treatment types
+plt.figure(figsize=(8, 6))
+sns.countplot(data['treatment_group'])
+plt.title('Distribution of Treatment Groups')
+plt.show()
+
+# Boxplot for age grouped by treatment outcomes.
+plt.figure(figsize=(8, 6))
+sns.boxplot(x='treatment_outcome', y='age', data=data)
+plt.title('Age vs Treatment Outcome')
+plt.show()
+
+# Check for significant differences in outcomes between treatment groups
+from scipy.stats import ttest_ind
+
+# Group data by treatment group
+group_A = data[data['treatment_group'] == 'A']['treatment_outcome']
+group_B = data[data['treatment_group'] == 'B']['treatment_outcome']
+
+# Perform an independent t-test
+t_stat, p_val = ttest_ind(group_A, group_B)
+print(f"T-statistic: {t_stat}, P-value: {p_val}")
+
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+# Prepare features and target variable
+X = data.drop('treatment_outcome', axis=1)
+y = data['treatment_outcome']
+
+# Split data into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train a random forest classifier
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate model performance
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
