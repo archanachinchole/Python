@@ -11,7 +11,7 @@ sample_mean = np.mean(sample_data)
 # Sample standard deviation
 sample_std = np.std(sample_data, ddof=1)
 
-## Sample size
+# Sample size
 n = len(sample_data)
 
 ## Confidence level (e.g., 95%)
