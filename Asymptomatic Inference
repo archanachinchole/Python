@@ -27,7 +27,7 @@ standard_error = sample_std / np.sqrt(n)
 ## Confidence interval
 confidence_interval = (sample_mean - z_score * standard_error, sample_mean + z_score * standard_error)
 
-## Print results
+# Print results
 print(f"Sample Mean: {sample_mean}")
 print(f"Standard Error: {standard_error}")
 print(f"Confidence Interval: {confidence_interval}")
