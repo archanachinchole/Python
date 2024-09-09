@@ -8,7 +8,7 @@ sample_data = np.random.normal(loc=50, scale=10, size=100)  # Sample from a norm
 # Sample mean
 sample_mean = np.mean(sample_data)
 
-## Sample standard deviation
+# Sample standard deviation
 sample_std = np.std(sample_data, ddof=1)
 
 ## Sample size
