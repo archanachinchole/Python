@@ -4,6 +4,6 @@ n = 5   # number of trials
 k = 3   # number of successes
 p = 0.5 # probability of success
 
-## Calculate probability
+# Calculate probability
 probability = binom.pmf(k, n, p)
 print(f"Probability of getting exactly {k} heads in {n} flips:", probability)
