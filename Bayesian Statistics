@@ -1,6 +1,6 @@
 import numpy as np
 
-# Prior belief
+# Prior belief.
 prior = 0.6
 
 # Likelihood
