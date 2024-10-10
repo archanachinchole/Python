@@ -2,7 +2,7 @@ import numpy as np
 import scipy.stats as stats
 
 # Generate a sample data 
-np.random.seed(42)
+np.random.seed(42) 
 sample_data = np.random.normal(loc=50, scale=10, size=100)  # Sample from a normal distribution
 
 # Sample mean
