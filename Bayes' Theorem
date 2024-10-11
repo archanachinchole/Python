@@ -2,7 +2,7 @@
 P_B_given_A = 0.8  # P(B|A)
 P_A = 0.3          # P(A)
 P_B = 0.5          # P(B)
-
+ 
 # Calculate using Bayes' Theorem
 P_A_given_B = (P_B_given_A * P_A) / P_B
 print(f"Bayesian Probability P(A|B):", P_A_given_B)
