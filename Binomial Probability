@@ -7,3 +7,8 @@ p = 0.5 ## probability of success
 ## Calculate probability.
 probability = binom.pmf(k, n, p)
 print(f"Probability of getting exactly {k} heads in {n} flips:", probability)
+
+
+
+
+🛕
