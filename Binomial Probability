@@ -1,4 +1,4 @@
-from scipy.stats import binom
+ from scipy.stats import binom
    
 n = 5   ## numbers of trials
 k = 3   ## number of successes
