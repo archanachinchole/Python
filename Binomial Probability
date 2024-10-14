@@ -1,5 +1,5 @@
  from scipy.stats import binom
-   
+    
 n = 5   ## numbers of trials
 k = 3   ## number of successes
 p = 0.5 ## probability of success
