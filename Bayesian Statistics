@@ -3,7 +3,7 @@ import numpy as np
 #Prior belief
 prior = 0.6
 
-# Likelihood
+#Likelihood
 likelihood = 0.7
 
 # Evidence (probability of data)
