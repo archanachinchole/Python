@@ -6,7 +6,7 @@ prior = 0.6
 #Likelihood
 likelihood = 0.7
 
-# Evidence (probability of data)
+#Evidence (probability of data)
 evidence = 0.8
 
 # Posterior probability using Bayes' Theorem
