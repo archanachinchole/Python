@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 # Load the Boston Housing dataset
 boston = load_boston()  #g
-  
+   
 # Create a DataFrame with the data
 df = pd.DataFrame(boston.data, columns=boston.feature_names)
 df['PRICE'] = boston.target
